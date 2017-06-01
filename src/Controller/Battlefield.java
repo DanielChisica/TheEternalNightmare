@@ -22,11 +22,9 @@ public class Battlefield {
     private Characters rival2;
     private Characters rival3;
     private Characters rival4;
-    
+
     int team1hasattack;
-   
-    
-    
+
     public Battlefield(Allen allen, Eddy eddy, Pearl pearl, Characters rival1, Characters rival2, Characters rival3, Characters rival4) {
         this.allen = allen;
         this.eddy = eddy;
@@ -39,18 +37,18 @@ public class Battlefield {
 
     public void attack(Characters char1, Characters char2) {
         char2.setHp(char2.getHp() - (char1.getAtk() - char2.getArmor()));
-        
-        if(char1 instanceof Allen || char1 instanceof Eddy){
-            team1hasattack=1;
+
+        if (char1 instanceof Allen || char1 instanceof Eddy) {
+            team1hasattack = 1;
         }
-        
+
     }
 
     public void specialAttack(Characters char1, Characters char2, SpecialSkill spk1) {
         char1.setMp(char1.getMp() - spk1.getMagic());
         char2.setHp(char2.getHp() - (spk1.getMagic() - char2.getMagicalResistence()));
-        if(char1 instanceof Allen || char1 instanceof Eddy){
-            team1hasattack=1;
+        if (char1 instanceof Allen || char1 instanceof Eddy) {
+            team1hasattack = 1;
         }
     }
 
@@ -71,7 +69,7 @@ public class Battlefield {
         int n = rand.nextInt(4) + 1;
 
         switch (n) {
-            case 1:  
+            case 1:
                 rival1.setHp(rival1.getHp() - (pearl.getSkill2().getMagic()));
                 attack(allen, rival1);
                 break;
@@ -98,18 +96,64 @@ public class Battlefield {
         pearl.setMp(pearl.getMp() - (pearl.getSkill3().getMagic()));
         allen.setArmor(allen.getArmor() + pearl.getSkill3().getMagic());
     }
-    
-    public boolean battle(){
-        while((allen.getHp()>0 && eddy.getHp()>0 && pearl.getHp()>0)
-                ||(rival1.getHp()>0 && rival2.getHp()>0 && rival3.getHp()>0)){
-                if(team1hasattack==1){
-                     Random rand = new Random();
-                     int n = rand.nextInt(12) + 1;
-                     
-                     
-                     
-                     
-                    
+
+    public boolean battle() {
+        while ((allen.getHp() > 0 && eddy.getHp() > 0 && pearl.getHp() > 0)
+                || (rival1.getHp() > 0 && rival2.getHp() > 0 && rival3.getHp() > 0)) {
+            if (team1hasattack == 1) {
+                Random rand = new Random();
+                int n = rand.nextInt(12) + 1;
+            
+        switch(n){
+        case 1:  
+                specialAttack(rival1, allen, rival1.getSkill1());
+                break;
+
+            case 2:
+                specialAttack(rival2, allen, rival1.getSkill1());
+                break;
+
+            case 3:
+                specialAttack(rival3, allen, rival3.getSkill1());
+                break;
+
+            case 4:
+                specialAttack(rival4, allen, rival4.getSkill1());
+                break;
+                
+            case 5:
+                attack(rival1, allen);
+                break;
+                
+            case 6:
+                attack(rival2, allen);
+                break;    
+                
+            case 7:
+                attack(rival3, allen);
+                break;    
+                
+            case 8:
+                 attack(rival4, allen);
+                break;    
+                
+            case 9:
+                attack(rival1, eddy);
+                break;
+                
+            case 10:
+                attack(rival2, eddy);
+                break;
+                
+            case 11:
+                attack(rival3, eddy);
+                break;
+                
+            case 12:
+                attack(rival4, eddy);
+                break;    
+                
+        }
                     team1hasattack=0;
                 }   
         }
