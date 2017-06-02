@@ -22,6 +22,8 @@ public class Battlefield {
     private Characters rival2;
     private Characters rival3;
     private Characters rival4;
+    
+    private HistHabilitys cola;
 
     int team1hasattack;
 

@@ -5,6 +5,10 @@
  */
 package Model;
 
+import Controller.Maleta;
+import Controller.Masters;
+
+
 /**
  *
  * @author danie_000
@@ -14,6 +18,11 @@ public class Allen extends Characters{
     private static SpecialSkill fireFist=new SpecialSkill(35);
     private static SpecialSkill shuriken=new SpecialSkill(37);
     private static SpecialSkill freeze=new SpecialSkill(32);
+    
+    private static Maleta bag ;
+    private Masters maste;
+
+            
     
 
     public Allen() {

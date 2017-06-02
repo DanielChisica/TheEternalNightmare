@@ -14,5 +14,18 @@ import java.util.ArrayList;
 public class MissionsAndObjectives {
     
     private ArrayList List;
+
+    public MissionsAndObjectives(ArrayList List) {
+        this.List = List;
+    }
+
+    public ArrayList getList() {
+        return List;
+    }
+
+    public void setList(ArrayList List) {
+        this.List = List;
+    }
+    
     
 }
