@@ -22,6 +22,70 @@ public class Battlefield {
     private Characters rival2;
     private Characters rival3;
     private Characters rival4;
+
+    public Allen getAllen() {
+        return allen;
+    }
+
+    public void setAllen(Allen allen) {
+        this.allen = allen;
+    }
+
+    public Eddy getEddy() {
+        return eddy;
+    }
+
+    public void setEddy(Eddy eddy) {
+        this.eddy = eddy;
+    }
+
+    public Pearl getPearl() {
+        return pearl;
+    }
+
+    public void setPearl(Pearl pearl) {
+        this.pearl = pearl;
+    }
+
+    public Characters getRival1() {
+        return rival1;
+    }
+
+    public void setRival1(Characters rival1) {
+        this.rival1 = rival1;
+    }
+
+    public Characters getRival2() {
+        return rival2;
+    }
+
+    public void setRival2(Characters rival2) {
+        this.rival2 = rival2;
+    }
+
+    public Characters getRival3() {
+        return rival3;
+    }
+
+    public void setRival3(Characters rival3) {
+        this.rival3 = rival3;
+    }
+
+    public Characters getRival4() {
+        return rival4;
+    }
+
+    public void setRival4(Characters rival4) {
+        this.rival4 = rival4;
+    }
+
+    public HistHabilitys getCola() {
+        return cola;
+    }
+
+    public void setCola(HistHabilitys cola) {
+        this.cola = cola;
+    }
     
     private HistHabilitys cola;
 
@@ -100,11 +164,16 @@ public class Battlefield {
     }
 
     public boolean battle() {
-        while ((allen.getHp() > 0 && eddy.getHp() > 0 && pearl.getHp() > 0)
-                || (rival1.getHp() > 0 && rival2.getHp() > 0 && rival3.getHp() > 0)) {
+        
+        while ((allen.getHp() > 0 || eddy.getHp() > 0 || pearl.getHp() > 0)
+                && (rival1.getHp() > 0 || rival2.getHp() > 0 || rival3.getHp() > 0)) {
+      
             if (team1hasattack == 1) {
+                 System.out.println("asdfafd");
+                attack(rival1, allen);
+                System.out.println("asdfafd");
                 Random rand = new Random();
-                int n = rand.nextInt(12) + 1;
+                int n = rand.nextInt(12);
             
         switch(n){
         case 1:  

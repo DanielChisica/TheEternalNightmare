@@ -15,7 +15,7 @@ public class TheDeath extends Characters{
     private static SpecialSkill deathRope=new SpecialSkill(130);
 
     public TheDeath() {
-        super(400, 400, 45, 30, 30, 06, flute, deathSong, deathRope, 400, 400);
+        super("TheDeath",400, 400, 45, 30, 30, 06, flute, deathSong, deathRope, 400, 400);
     }
     
     

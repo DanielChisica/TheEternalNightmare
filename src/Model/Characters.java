@@ -10,20 +10,13 @@ package Model;
  * @author danie_000
  */
 public class Characters {
-    
+
+    private String name;
     private int hp;
     private int mp;
     private int atk;
     private int armor;
     private int magicalResistence;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
     private int id;
     private SpecialSkill Skill1;
     private SpecialSkill Skill2;
@@ -46,6 +39,14 @@ public class Characters {
     }
     private int hpLimit;
     private int mpLimit;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getHp() {
         return hp;
@@ -87,6 +88,14 @@ public class Characters {
         this.magicalResistence = magicalResistence;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public SpecialSkill getSkill1() {
         return Skill1;
     }
@@ -111,9 +120,10 @@ public class Characters {
         this.Skill3 = Skill3;
     }
 
-    public Characters(int hp, int mp, int atk, int armor, int magicalResistence,
+    public Characters(String name, int hp, int mp, int atk, int armor, int magicalResistence,
             int id, SpecialSkill Skill1, SpecialSkill Skill2,
             SpecialSkill Skill3, int hpLimit, int mpLimit) {
+        this.name = name;
         this.hp = hp;
         this.mp = mp;
         this.atk = atk;
@@ -123,13 +133,8 @@ public class Characters {
         this.Skill1 = Skill1;
         this.Skill2 = Skill2;
         this.Skill3 = Skill3;
-        this.hpLimit=hpLimit;
-        this.mpLimit=mpLimit;
+        this.hpLimit = hpLimit;
+        this.mpLimit = mpLimit;
     }
 
-   
-    
-    
-    
-    
 }

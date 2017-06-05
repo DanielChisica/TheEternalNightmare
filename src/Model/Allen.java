@@ -26,7 +26,7 @@ public class Allen extends Characters{
     
 
     public Allen() {
-        super(100, 0, 30, 0, 0, 01,fireFist,shuriken,freeze,100,100);
+        super("Allen",100, 0, 30, 0, 0, 01,fireFist,shuriken,freeze,100,100);
     }
     
     

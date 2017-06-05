@@ -15,7 +15,7 @@ public class Ghost extends Characters{
     private static SpecialSkill curse=new SpecialSkill(25);
 
     public Ghost() {
-        super(50, 100, 15, 0,0, 04, fear, scream, curse,50,100);
+        super("Ghost",50, 100, 15, 0,0, 04, fear, scream, curse,50,100);
     }
     
     

@@ -15,7 +15,7 @@ public class Darkness extends Characters{
     private static SpecialSkill throwsToes=new SpecialSkill(90);
 
     public Darkness() {
-        super(300, 200, 45, 0, 15, 05, sword, darkAtk, throwsToes, 300, 200);
+        super("Darkness",300, 200, 45, 0, 15, 05, sword, darkAtk, throwsToes, 300, 200);
     }
     
     
