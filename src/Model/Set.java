@@ -15,14 +15,14 @@ import Model.Interfaces.TADConjuntable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-public class Conjunto implements TADConjuntable {
+public class Set implements TADConjuntable {
 
     //Arreglo de datos para almacenarlos
     private Object[] datos;
     //contador de la cantidad de elementos.
     private int nElementos;
 
-    public Conjunto() {
+    public Set() {
         this(20);
     }
 
@@ -32,7 +32,7 @@ public class Conjunto implements TADConjuntable {
      * @param datos --
      * @param nElementos
      */
-    public Conjunto(Object[] datos, int nElementos) {
+    public Set(Object[] datos, int nElementos) {
         this.datos = datos;
         this.nElementos = nElementos;
     }
@@ -41,7 +41,7 @@ public class Conjunto implements TADConjuntable {
      *
      * @param tam
      */
-    public Conjunto(int tam) {
+    public Set(int tam) {
         datos = new Object[tam <= 0 ? 20 : tam];
         for (int i = 0; i < datos.length; i++) {
             datos[i] = null;
@@ -63,7 +63,7 @@ public class Conjunto implements TADConjuntable {
      *
      * @param c -- conjunto que se toma como valor inicial para crear el nuevo.
      */
-    public Conjunto(Conjunto c) {
+    public Set(Set c) {
         datos = new Object[c.datos.length];
         for (int i = 0; i < c.datos.length; i++) {
             datos[i] = c.datos[i];
@@ -164,7 +164,7 @@ public class Conjunto implements TADConjuntable {
      */
     @Override
     public TADConjuntable union(TADConjuntable c) {
-        Conjunto conjuntoUnion = new Conjunto(this);
+        Set conjuntoUnion = new Set(this);
         Iterator it = c.iterator();
         while (it.hasNext()) {
             conjuntoUnion.agregar(nElementos);
@@ -174,7 +174,7 @@ public class Conjunto implements TADConjuntable {
 
     @Override
     public TADConjuntable interseccion(TADConjuntable c) {
-        Conjunto conjuntoInterseccion = new Conjunto(this);
+        Set conjuntoInterseccion = new Set(this);
         Iterator it = iterator();
         while (it.hasNext()) {
             Object next = it.next();
@@ -188,7 +188,7 @@ public class Conjunto implements TADConjuntable {
 
     @Override
     public TADConjuntable diferencia(TADConjuntable c) {
-        Conjunto diferencia = new Conjunto(this);
+        Set diferencia = new Set(this);
         Iterator it = iterator();
         while (it.hasNext()) {
             Object next = it.next();

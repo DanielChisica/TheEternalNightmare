@@ -15,7 +15,7 @@ public class Eddy extends Characters{
     private static SpecialSkill rotationAtk=new SpecialSkill(30);//Return the rival atk
 
     public Eddy() {
-        super("Eddy",60, 70, 15, 10, 20, 03, throwThorns, bite, rotationAtk,60,70);
+        super("Eddy",60, 70, 15, 10, 10, 03, throwThorns, bite, rotationAtk,60,70);
     }
     
     

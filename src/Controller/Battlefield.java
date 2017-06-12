@@ -79,17 +79,18 @@ public class Battlefield {
         this.rival4 = rival4;
     }
 
-    public HistHabilitys getCola() {
+    public AbilitiesHistory getCola() {
         return cola;
     }
 
-    public void setCola(HistHabilitys cola) {
+    public void setCola(AbilitiesHistory cola) {
         this.cola = cola;
     }
     
-    private HistHabilitys cola;
+    private AbilitiesHistory cola;
 
     int team1hasattack;
+    int shieldIncreased;
 
     public Battlefield(Allen allen, Eddy eddy, Pearl pearl, Characters rival1, Characters rival2, Characters rival3, Characters rival4) {
         this.allen = allen;
@@ -228,6 +229,9 @@ public class Battlefield {
                     team1hasattack=0;
                 }   
         }
+        
+        allen.setArmor(allen.getArmor()-(pearl.getSkill3().getMagic()*shieldIncreased));
+        
         return true;
     }
 }

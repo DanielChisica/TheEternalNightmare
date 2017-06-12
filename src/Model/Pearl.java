@@ -16,7 +16,7 @@ public class Pearl extends Characters{
     private static SpecialSkill bringShield=new SpecialSkill(5);
 
     public Pearl() {
-        super("Pearl",200, 100, 0, 0, 75, 02, heal, increaseAtk, bringShield,200,100);
+        super("Pearl",200, 100, 0, 0, 15, 02, heal, increaseAtk, bringShield,200,100);
     }
     
     

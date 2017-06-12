@@ -12,11 +12,11 @@ import java.util.Queue;
  *
  * @author AkaEx
  */
-public class HistHabilitys {
+public class AbilitiesHistory {
     
     private Queue<SpecialSkill> hist;
 
-    public HistHabilitys(Queue<SpecialSkill> hist) {
+    public AbilitiesHistory(Queue<SpecialSkill> hist) {
         this.hist = hist;
     }
 
