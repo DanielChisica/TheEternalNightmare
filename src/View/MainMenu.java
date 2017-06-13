@@ -67,7 +67,6 @@ public class MainMenu extends javax.swing.JFrame {
         jButton3.setBounds(430, 620, 73, 23);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon.png"))); // NOI18N
-        jLabel2.setPreferredSize(new java.awt.Dimension(350, 379));
         getContentPane().add(jLabel2);
         jLabel2.setBounds(280, 0, 400, 350);
 
@@ -77,7 +76,7 @@ public class MainMenu extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextPane1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(330, 390, 290, 50);
+        jScrollPane1.setBounds(330, 390, 290, 22);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Menu.png"))); // NOI18N
         getContentPane().add(jLabel1);
