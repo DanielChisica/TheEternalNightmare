@@ -35,7 +35,7 @@ public class Maped extends StateBasedGame{
     
     public static void main(String[] args){
         try{
-            Maped str= new Maped("djfgas");
+            Maped str= new Maped("Eternal");
             
         }catch(SlickException slick){
             slick.printStackTrace();

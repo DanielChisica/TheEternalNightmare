@@ -5,8 +5,10 @@
  */
 package View;
 
+import java.awt.Rectangle;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+import org.newdawn.slick.geom.*;
 
 /**
  *
@@ -19,9 +21,140 @@ public class Juego extends BasicGameState {
     private Input entrada;
     private float x = (float) 250, y = (float) 310;
 
+    public Image getMapa() {
+        return mapa;
+    }
+
+    public void setMapa(Image mapa) {
+        this.mapa = mapa;
+    }
+
+    public Image getAllen() {
+        return allen;
+    }
+
+    public void setAllen(Image allen) {
+        this.allen = allen;
+    }
+
+    public Input getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(Input entrada) {
+        this.entrada = entrada;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public Music getMusic() {
+        return music;
+    }
+
+    public void setMusic(Music music) {
+        this.music = music;
+    }
+
+    public Rectangle getEstatua1() {
+        return estatua1;
+    }
+
+    public void setEstatua1(Rectangle estatua1) {
+        this.estatua1 = estatua1;
+    }
+
+    public Rectangle getEstatua2() {
+        return estatua2;
+    }
+
+    public void setEstatua2(Rectangle estatua2) {
+        this.estatua2 = estatua2;
+    }
+
+    public Rectangle getEstatua3() {
+        return estatua3;
+    }
+
+    public void setEstatua3(Rectangle estatua3) {
+        this.estatua3 = estatua3;
+    }
+
+    public Rectangle getAllenRec() {
+        return allenRec;
+    }
+
+    public void setAllenRec(Rectangle allenRec) {
+        this.allenRec = allenRec;
+    }
+
+    public boolean isColision() {
+        return colision;
+    }
+
+    public void setColision(boolean colision) {
+        this.colision = colision;
+    }
+    private Music music;
+    private Rectangle estatua1, estatua2, estatua3, estatua4, allenRec;
+    private boolean colision = false;
+
     @Override
     public int getID() {
         return 0;
+    }
+
+    private void actualizarallen() {
+        if (!colision) {
+            if (entrada.isKeyDown(Input.KEY_UP)) {
+                if (y > 29) {
+                    y = (float) (y - 0.15);
+                    allenRec.y = (int) y;
+                } else {
+                    y = y;
+                }
+
+            }
+            if (entrada.isKeyDown(Input.KEY_DOWN)) {
+                if (y < 335) {
+                    y = (float) (y + 0.15);
+                    allenRec.y = (int) y;
+                } else {
+                    y = y;
+                }
+            }
+            if (entrada.isKeyDown(Input.KEY_LEFT)) {
+                if (x > 19) {
+                    x = (float) (x - 0.15);
+                    allenRec.x = (int) x;
+                } else {
+                    x = x;
+                }
+            }
+            if (entrada.isKeyDown(Input.KEY_RIGHT)) {
+                if (x < 471) {
+                    x = (float) (x + 0.15);
+                    allenRec.x = (int) x;
+                } else {
+                    x = x;
+                }
+            }
+        }
+
+        colision = false;
     }
 
     @Override
@@ -29,6 +162,11 @@ public class Juego extends BasicGameState {
         mapa = new Image("Resources/Map.PNG");
         allen = new Image("Resources/01.png");
         entrada = container.getInput();
+        estatua1 = new Rectangle(351, 154, 30, 70);
+        estatua2 = new Rectangle(159, 155, 30, 70);
+        estatua3 = new Rectangle(415, 250, 30, 70);
+        estatua4 = new Rectangle(94, 250, 30, 70);
+        allenRec = new Rectangle((int) x, (int) y, allen.getWidth(), allen.getHeight());
 
     }
 
@@ -41,45 +179,22 @@ public class Juego extends BasicGameState {
         String posallen = "(" + x + "," + y + ")";
         g.drawString(posicion, 10, 10);
         g.drawString(posallen, 20, 20);
+        g.drawRect((int) allenRec.getX(), (int) allenRec.getY(), allen.getWidth(), allen.getHeight());
+        if (colision) {
+            g.drawString("hanChocado", 50, 50);
+        }
+
     }
 
     @Override
     public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
 
-        if (entrada.isKeyDown(Input.KEY_UP)) {
-            if (y > 29) {
-                y = (float) (y - 0.15);
-            }
-            else{
-                y=y;
-            }
-
+        if (allenRec.intersects(estatua1) || allenRec.intersects(estatua2) || allenRec.intersects(estatua3) || allenRec.intersects(estatua4)) {
+            colision = true;
         }
-        if (entrada.isKeyDown(Input.KEY_DOWN)) {
-             if (y < 365) {
-                y = (float) (y + 0.15);
-            }
-            else{
-                y=y;
-            }
+        if (!colision) {
+            actualizarallen();
+            actualizarallen();
         }
-        if (entrada.isKeyDown(Input.KEY_LEFT)) {
-            if (x > 19 ) {
-                x = (float) (x - 0.15);
-            }
-            else{
-                x=x;
-            }
-        }
-        if (entrada.isKeyDown(Input.KEY_RIGHT)) {
-            if (x < 471) {
-                x= (float) (x + 0.15);
-            }
-            else{
-                x=x;
-            }
-        }
-
     }
-
 }

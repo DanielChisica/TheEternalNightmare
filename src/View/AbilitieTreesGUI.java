@@ -98,7 +98,7 @@ public class AbilitieTreesGUI extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(300, 430, 120, 100);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Allen.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/01.png"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
