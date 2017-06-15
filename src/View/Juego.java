@@ -180,8 +180,8 @@ public class Juego extends BasicGameState {
 //        g.drawRect((int) allenRec.getX(), (int) allenRec.getY(), allen.getWidth(), allen.getHeight());
         if (colision) {
             g.drawString("hanChocado", 50, 50);
-            x=x-3;
-            y=y-3;
+            x=250;
+            y=310;
 //            g.drawRect((int) allenRec.getX(), (int) allenRec.getY(), allen.getWidth(), allen.getHeight());
             colision=false;
         }
@@ -195,10 +195,7 @@ public class Juego extends BasicGameState {
         if (allenRec.intersects(estatua1) || allenRec.intersects(estatua2) || allenRec.intersects(estatua3) || allenRec.intersects(estatua4)) {
             colision = true;
         }
-//        if (!colision) {
-//            actualizarallen();
-//        }
-actualizarallen();
+        actualizarallen();
      
     }
 }
