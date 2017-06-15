@@ -14,17 +14,17 @@ import java.util.Queue;
  */
 public class AbilitiesHistory {
     
-    private Queue<SpecialSkill> hist;
+    private Queue<String> hist;
 
-    public AbilitiesHistory(Queue<SpecialSkill> hist) {
+    public AbilitiesHistory(Queue<String> hist) {
         this.hist = hist;
     }
 
-    public Queue<SpecialSkill> getHist() {
+    public Queue<String> getHist() {
         return hist;
     }
 
-    public void setHist(Queue<SpecialSkill> hist) {
+    public void setHist(Queue<String> hist) {
         this.hist = hist;
     }
     

@@ -118,9 +118,8 @@ public class Juego extends BasicGameState {
     }
 
     private void actualizarallen() {
-        if (!colision) {
             if (entrada.isKeyDown(Input.KEY_UP)) {
-                if (y > 29) {
+                if (y > 29&&!allenRec.intersects(estatua1) || !allenRec.intersects(estatua2) || !allenRec.intersects(estatua3) || !allenRec.intersects(estatua4)) {
                     y = (float) (y - 0.15);
                     allenRec.y = (int) y;
                 } else {
@@ -152,10 +151,10 @@ public class Juego extends BasicGameState {
                     x = x;
                 }
             }
-        }
 
-        colision = false;
+       
     }
+
 
     @Override
     public void init(GameContainer container, StateBasedGame game) throws SlickException {
@@ -172,18 +171,22 @@ public class Juego extends BasicGameState {
 
     @Override
     public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
-        g.drawString("Prueba", 200, 200);
         mapa.draw();
         allen.draw(x, y);
         String posicion = "(" + entrada.getMouseX() + "," + entrada.getMouseY() + ")";
         String posallen = "(" + x + "," + y + ")";
         g.drawString(posicion, 10, 10);
         g.drawString(posallen, 20, 20);
-        g.drawRect((int) allenRec.getX(), (int) allenRec.getY(), allen.getWidth(), allen.getHeight());
+//        g.drawRect((int) allenRec.getX(), (int) allenRec.getY(), allen.getWidth(), allen.getHeight());
         if (colision) {
             g.drawString("hanChocado", 50, 50);
+            x=x-3;
+            y=y-3;
+//            g.drawRect((int) allenRec.getX(), (int) allenRec.getY(), allen.getWidth(), allen.getHeight());
+            colision=false;
         }
-
+        
+        
     }
 
     @Override
@@ -192,9 +195,10 @@ public class Juego extends BasicGameState {
         if (allenRec.intersects(estatua1) || allenRec.intersects(estatua2) || allenRec.intersects(estatua3) || allenRec.intersects(estatua4)) {
             colision = true;
         }
-        if (!colision) {
-            actualizarallen();
-            actualizarallen();
-        }
+//        if (!colision) {
+//            actualizarallen();
+//        }
+actualizarallen();
+     
     }
 }
