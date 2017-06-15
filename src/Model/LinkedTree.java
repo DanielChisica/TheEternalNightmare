@@ -30,7 +30,7 @@ public class LinkedTree<T> extends AbstractTree {
      * 
      * @param <T> Generic Data Type
      */
-    protected class Node<T>  implements Position{
+    public class Node<T>  implements Position{
         private ArrayList<Position<T>> children;
         private Node<T> parent;
         private T element;
@@ -175,17 +175,26 @@ public class LinkedTree<T> extends AbstractTree {
      * @return The same node
      * @throws IllegalArgumentException The exceptions that could be
      */
-      protected Node<T> validate(Position<T> p) throws IllegalArgumentException {
-        if (!(p instanceof Node)) {
-            throw new IllegalArgumentException("Isn't a valid position");
-        }
+      public Node<T> validate(Position<T> p) throws IllegalArgumentException {
+     
 
         Node<T> e = (Node<T>) p;
-
-        if (e.getParent()== e) {
+        if(e!=null){
+             if (e.getParent()!=null) {
+              if (e.getParent()== e) {
             throw new IllegalArgumentException("p isn't in the tree");
         }
         return e;
+          }
+          else{
+              return root;
+          }
+        }
+        
+        else{
+            return null;
+        }
+        
     }
         
       /**
@@ -200,9 +209,15 @@ public class LinkedTree<T> extends AbstractTree {
         Node<T> child = createNode(null,parent,element);
         size++;
         ArrayList<Position<T>> actualchildren=new ArrayList<>();
-        if(parent.getChildren()!=null){
+        if(parent!=null){
+             if(parent.getChildren()!=null){
             actualchildren= parent.getChildren();
         }
+        }
+        else{
+            return null;
+        }
+       
         
         
            

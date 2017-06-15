@@ -5,17 +5,32 @@
  */
 package View;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import Controller.*;
+import Model.*;
+import Model.Interfaces.Position;
+
 /**
  *
  * @author danie_000
  */
 public class AbilitieTreesGUI extends javax.swing.JFrame {
 
+    MasterTree masterTree1 = new MasterTree(new Allen(), new Eddy(), new Pearl());
+
+    boolean Allen;
+    boolean Eddy;
+    boolean Pearl;
+
     /**
      * Creates new form AbilitieTreesGUI
      */
     public AbilitieTreesGUI() {
         initComponents();
+        Allen = false;
+        Eddy = false;
+        Pearl = false;
     }
 
     /**
@@ -66,28 +81,55 @@ public class AbilitieTreesGUI extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Pearl.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel2);
         jLabel2.setBounds(300, 430, 120, 100);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/01.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Allen.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel3);
         jLabel3.setBounds(10, 430, 110, 100);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Eddy.png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel4);
         jLabel4.setBounds(140, 430, 150, 100);
 
         jButton1.setText("Apply Master");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(430, 470, 100, 23);
+
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel6);
         jLabel6.setBounds(60, 90, 40, 30);
         jPanel1.add(jLabel7);
@@ -96,6 +138,12 @@ public class AbilitieTreesGUI extends javax.swing.JFrame {
         jLabel8.setBounds(60, 250, 40, 40);
         jPanel1.add(jLabel9);
         jLabel9.setBounds(60, 320, 40, 30);
+
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel10);
         jLabel10.setBounds(60, 390, 40, 20);
         jPanel1.add(jLabel11);
@@ -156,12 +204,22 @@ public class AbilitieTreesGUI extends javax.swing.JFrame {
         jLabel38.setBounds(380, 320, 40, 30);
         jPanel1.add(jLabel39);
         jLabel39.setBounds(370, 390, 50, 30);
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(240, 0, 0, 0);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/AllenTree.PNG"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 546, 410);
+        jLabel40.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel40MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel40);
+        jLabel40.setBounds(250, 0, 40, 60);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/AllenTree.PNG"))); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(0, 0, 550, 420);
+
+        jButton2.setText("jButton2");
+        jPanel1.add(jButton2);
+        jButton2.setBounds(460, 500, 73, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,6 +234,80 @@ public class AbilitieTreesGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel40MouseClicked
+        // TODO add your handling code here:
+
+        jButton1.addMouseListener(new MouseAdapter() {
+            
+            
+            
+            
+            public void mousePressed(MouseEvent e) {
+                
+                if (Allen) {
+                    Position pos = masterTree1.applyMaster(masterTree1.allen,
+                            masterTree1.getMasterTreeAllen(), 
+                            masterTree1.getAllenPos2());
+                    
+                    masterTree1.setAllenPos2(pos);
+                    System.out.println(masterTree1.allen.getHpLimit()+" "+masterTree1.allen.getMpLimit()+" "+masterTree1.allen.getArmor()+" "
+                +masterTree1.allen.getAtk()+" "+masterTree1.allen.getSkill1().getMagic()+" "+masterTree1.allen.getSkill2().getMagic()+" "+masterTree1.allen.getSkill3().getMagic());
+                    
+                    
+                } else if (Eddy) {
+                    Position pos = masterTree1.applyMaster(masterTree1.eddy,
+                            masterTree1.getMasterTreeEddy(), 
+                            masterTree1.getEddyPos2());
+                    
+                    masterTree1.setAllenPos2(pos);
+                } else if (Pearl) {
+                    Position pos = masterTree1.applyMaster(masterTree1.pearl,
+                            masterTree1.getMasterTreePearl(), 
+                            masterTree1.getPearlPos2());
+                    masterTree1.setPearlPos2(pos);
+                }
+
+            }
+
+        }
+        );
+
+    }//GEN-LAST:event_jLabel40MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        Allen = true;
+        Eddy = false;
+        Pearl = false;
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        Allen = false;
+        Eddy = true;
+        Pearl = false;
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        Allen = false;
+        Eddy = false;
+        Pearl = true;
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -214,7 +346,7 @@ public class AbilitieTreesGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -248,6 +380,7 @@ public class AbilitieTreesGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
