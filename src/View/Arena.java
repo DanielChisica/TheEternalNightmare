@@ -751,6 +751,8 @@ public class Arena extends javax.swing.JFrame {
          System.out.println("It's executing bitch 2");
     }
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -79,16 +79,6 @@ public class Battlefield {
         this.rival4 = rival4;
     }
 
-    public AbilitiesHistory getCola() {
-        return cola;
-    }
-
-    public void setCola(AbilitiesHistory cola) {
-        this.cola = cola;
-    }
-    
-    private AbilitiesHistory cola;
-
     int team1hasattack;
     int shieldIncreased;
 
